@@ -1,0 +1,83 @@
+02.17 11:20 AM
+const typingEl = document.getElementById("typing");
+const words = ["interactive websites", "immersive interfaces", "high-performance products"];
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typeLoop() {
+  const currentWord = words[wordIndex];
+  typingEl.textContent = currentWord.slice(0, charIndex);
+
+  if (!deleting && charIndex < currentWord.length) {
+    charIndex += 1;
+    setTimeout(typeLoop, 80);
+    return;
+  }
+
+  if (!deleting && charIndex === currentWord.length) {
+    deleting = true;
+    setTimeout(typeLoop, 1300);
+    return;
+  }
+
+  if (deleting && charIndex > 0) {
+    charIndex -= 1;
+    setTimeout(typeLoop, 40);
+    return;
+  }
+
+  deleting = false;
+  wordIndex = (wordIndex + 1) % words.length;
+  setTimeout(typeLoop, 240);
+}
+
+typeLoop();
+
+const cursorGlow = document.querySelector(".cursor-glow");
+window.addEventListener("pointermove", (event) => {
+  cursorGlow.style.left = `${event.clientX}px`;
+  cursorGlow.style.top = `${event.clientY}px`;
+});
+
+const layers = document.querySelectorAll(".parallax-layer");
+window.addEventListener("scroll", () => {
+  const y = window.scrollY;
+  layers.forEach((layer, index) => {
+    const speed = index === 0 ? 0.2 : 0.13;
+    layer.style.transform = `translateY(${y * speed}px)`;
+  });
+});
+
+const revealEls = document.querySelectorAll(".reveal");
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.18 }
+);
+
+revealEls.forEach((el) => revealObserver.observe(el));
+
+const internalLinks = document.querySelectorAll('a[href^="#"]');
+internalLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const targetSelector = link.getAttribute("href");
+    const target = document.querySelector(targetSelector);
+    if (!target) return;
+    event.preventDefault();
+    target.animate([{ opacity: 0.85 }, { opacity: 1 }], {
+      duration: 350,
+      easing: "ease-out",
+    });
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+});
+
+const yearEl = document.getElementById("year");
+yearEl.textContent = new Date().getFullYear();
