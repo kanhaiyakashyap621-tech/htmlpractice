@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ultra-modern personal portfolio website">
+  <title>Neon Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="gradient-bg" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="site-header glass">
+    <a href="#home" class="logo">AK</a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="parallax-layer layer-1"></div>
+      <div class="parallax-layer layer-2"></div>
+      <div class="hero-content reveal">
+        <p class="kicker">PERSONAL PORTFOLIO</p>
+        <h1 class="name">Kanhaiya</h1>
+        <p class="typing-wrap">I build <span id="typing" class="typing"></span></p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View Work</a>
+          <a href="mailto:kanhaiyakashyap621gmail.com" class="btn btn-outline">Contact Me</a>
+        </div>
+      </div>
+      <div class="floating-wrap" aria-hidden="true">
+        <div class="floating orb orb-1"></div>
+        <div class="floating orb orb-2"></div>
+        <div class="floating cube"></div>
+      </div>
+    </section>
+
+    <section id="about" class="section reveal">
+      <div class="section-card glass">
+        <h2>About</h2>
+        <p>
+          I design and engineer premium web experiences focused on speed, motion, and clean interaction.
+          My work blends visual storytelling with production-grade front-end architecture.
+        </p>
+      </div>
+    </section>
+
+    <section id="projects" class="section reveal">
+      <h2>Featured Projects</h2>
+      <div class="project-grid">
+        <article class="project-card glass reveal">
+          <h3>Neon Commerce</h3>
+          <p>High-converting storefront with immersive product interactions and smooth page transitions.</p>
+          <a href="#" class="project-link">Explore</a>
+        </article>
+        <article class="project-card glass reveal">
+          <h3>Vision Analytics</h3>
+          <p>Data dashboard with animated metrics, robust state management, and polished micro-interactions.</p>
+          <a href="#" class="project-link">Explore</a>
+        </article>
+        <article class="project-card glass reveal">
+          <h3>Pulse Studio</h3>
+          <p>Creative agency site with advanced parallax layers, cinematic transitions, and custom UI motion.</p>
+          <a href="#" class="project-link">Explore</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section reveal">
+      <div class="section-card glass contact-card">
+        <h2>Let’s Build Something Bold</h2>
+        <p>Open to freelance and full-time opportunities.</p>
+        <a class="btn btn-primary" href="kanhaiyakashyao621@gmail.com">kanhaiyakashyap621@gmail.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Kanhaiya. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
